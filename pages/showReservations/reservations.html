@@ -1,0 +1,20 @@
+<div class="template">
+  <h2>This is your reservations</h2>
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <input id="member-username" placeholder="Enter member username" />
+        <button class="btn btn-sm btn-primary" id="btn-fetch-member-reservations">Get reservations</button>
+    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Car Id</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Reservation Date</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody id="tablerows" />
+  </table>
+  <p id="error" style="color:red"></p>
+</div>
