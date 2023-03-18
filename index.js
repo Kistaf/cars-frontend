@@ -7,6 +7,7 @@ import {
   adjustForMissingHash,
   renderTemplate,
   loadHtml,
+  handleAlreadyLoggedIn,
 } from "./utils.js";
 
 import { initReservation } from "./pages/reservation/reserve.js";
@@ -81,10 +82,12 @@ window.addEventListener("load", async () => {
         initListReservationsAll();
       },
       "/signup": () => {
+        handleAlreadyLoggedIn();
         renderTemplate(templateSignup, "content");
         initSignup();
       },
       "/login": (match) => {
+        handleAlreadyLoggedIn();
         renderTemplate(templateLogin, "content");
         initLogin();
       },

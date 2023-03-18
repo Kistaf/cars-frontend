@@ -5,7 +5,18 @@ import { handleHttpErrors, sanitizeStringWithTableRows } from "../../utils.js";
 const URL = API_URL + "/cars/admin";
 
 export async function initCars() {
-  const data = await fetch(URL).then(handleHttpErrors);
+  const token = localStorage.getItem("token");
+  if (token === undefined || token === null) {
+    document.getElementById("error").innerText = "You must be logged in";
+    return;
+  }
+  const data = await fetch(URL, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(handleHttpErrors);
   const tableRowsStr = data
     .map(
       (car) => `
