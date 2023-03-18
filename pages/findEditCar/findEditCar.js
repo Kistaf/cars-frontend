@@ -79,7 +79,7 @@ const handleDeleteCar = async () => {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
-        Authentication: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     populateEditForm({
